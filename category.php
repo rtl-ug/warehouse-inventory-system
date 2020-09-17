@@ -8,22 +8,22 @@
 ?>
 <?php
  if(isset($_POST['add_cat'])){
-   $req_field = array('categorie-name');
+   $req_field = array('category-name');
    validate_fields($req_field);
-   $cat_name = remove_junk($db->escape($_POST['categorie-name']));
+   $cat_name = remove_junk($db->escape($_POST['category-name']));
    if(empty($errors)){
       $sql  = "INSERT INTO categories (name)";
       $sql .= " VALUES ('{$cat_name}')";
       if($db->query($sql)){
-        $session->msg("s", "Successfully Added Categorie");
-        redirect('categorie.php',false);
+        $session->msg("s", "Successfully Added category");
+        redirect('category.php',false);
       } else {
         $session->msg("d", "Sorry Failed to insert.");
-        redirect('categorie.php',false);
+        redirect('category.php',false);
       }
    } else {
      $session->msg("d", $errors);
-     redirect('categorie.php',false);
+     redirect('category.php',false);
    }
  }
 ?>
@@ -40,15 +40,15 @@
         <div class="panel-heading">
           <strong>
             <span class="glyphicon glyphicon-th"></span>
-            <span>Add New Categorie</span>
+            <span>Add New category</span>
          </strong>
         </div>
         <div class="panel-body">
-          <form method="post" action="categorie.php">
+          <form method="post" action="category.php">
             <div class="form-group">
-                <input type="text" class="form-control" name="categorie-name" placeholder="Categorie Name">
+                <input type="text" class="form-control" name="category-name" placeholder="category Name">
             </div>
-            <button type="submit" name="add_cat" class="btn btn-primary">Add categorie</button>
+            <button type="submit" name="add_cat" class="btn btn-primary">Add category</button>
         </form>
         </div>
       </div>
@@ -77,10 +77,10 @@
                     <td><?php echo remove_junk(ucfirst($cat['name'])); ?></td>
                     <td class="text-center">
                       <div class="btn-group">
-                        <a href="edit_categorie.php?id=<?php echo (int)$cat['id'];?>"  class="btn btn-xs btn-warning" data-toggle="tooltip" title="Edit">
+                        <a href="edit_category.php?id=<?php echo (int)$cat['id'];?>"  class="btn btn-xs btn-warning" data-toggle="tooltip" title="Edit">
                           <span class="glyphicon glyphicon-edit"></span>
                         </a>
-                        <a href="delete_categorie.php?id=<?php echo (int)$cat['id'];?>"  class="btn btn-xs btn-danger" data-toggle="tooltip" title="Remove">
+                        <a href="delete_category.php?id=<?php echo (int)$cat['id'];?>"  class="btn btn-xs btn-danger" data-toggle="tooltip" title="Remove">
                           <span class="glyphicon glyphicon-trash"></span>
                         </a>
                       </div>

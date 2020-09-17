@@ -24,7 +24,7 @@
                 <th class="text-center" style="width: 50px;">#</th>
                 <th> Photo</th>
                 <th> Product Title </th>
-                <th class="text-center" style="width: 10%;"> Categorie </th>
+                <th class="text-center" style="width: 10%;"> category </th>
                 <th class="text-center" style="width: 10%;"> Instock </th>
                 <th class="text-center" style="width: 10%;"> Buying Price </th>
                 <th class="text-center" style="width: 10%;"> Saleing Price </th>
@@ -44,7 +44,7 @@
                 <?php endif; ?>
                 </td>
                 <td> <?php echo remove_junk($product['name']); ?></td>
-                <td class="text-center"> <?php echo remove_junk($product['categorie']); ?></td>
+                <td class="text-center"> <?php echo remove_junk($product['category']); ?></td>
                 <td class="text-center"> <?php echo remove_junk($product['quantity']); ?></td>
                 <td class="text-center"> <?php echo remove_junk($product['buy_price']); ?></td>
                 <td class="text-center"> <?php echo remove_junk($product['sale_price']); ?></td>

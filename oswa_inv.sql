@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `quantity` varchar(50) DEFAULT NULL,
   `buy_price` decimal(25,2) DEFAULT NULL,
   `sale_price` decimal(25,2) NOT NULL,
-  `categorie_id` int(11) unsigned NOT NULL,
+  `category_id` int(11) unsigned NOT NULL,
   `media_id` int(11) DEFAULT '0',
   `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -146,7 +146,7 @@ ALTER TABLE `media`
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `name` (`name`),
-  ADD KEY `categorie_id` (`categorie_id`),
+  ADD KEY `category_id` (`category_id`),
   ADD KEY `media_id` (`media_id`);
 
 --
@@ -212,7 +212,7 @@ ALTER TABLE `user_groups`
 -- Constraints for table `products`
 --
 ALTER TABLE `products`
-  ADD CONSTRAINT `FK_products` FOREIGN KEY (`categorie_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_products` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `sales`

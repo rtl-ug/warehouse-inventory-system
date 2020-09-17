@@ -5,7 +5,7 @@
    page_require_level(1);
 ?>
 <?php
- $c_categorie     = count_by_id('categories');
+ $c_category     = count_by_id('categories');
  $c_product       = count_by_id('products');
  $c_sale          = count_by_id('sales');
  $c_user          = count_by_id('users');
@@ -38,7 +38,7 @@
           <i class="glyphicon glyphicon-list"></i>
         </div>
         <div class="panel-value pull-right">
-          <h2 class="margin-top"> <?php  echo $c_categorie['total']; ?> </h2>
+          <h2 class="margin-top"> <?php  echo $c_category['total']; ?> </h2>
           <p class="text-muted">Categories</p>
         </div>
        </div>
@@ -171,7 +171,7 @@
                   </span>
                 </h4>
                 <span class="list-group-item-text pull-right">
-                <?php echo remove_junk(first_character($recent_product['categorie'])); ?>
+                <?php echo remove_junk(first_character($recent_product['category'])); ?>
               </span>
           </a>
       <?php endforeach; ?>

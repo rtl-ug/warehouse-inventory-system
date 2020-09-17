@@ -15,12 +15,12 @@ if(!$product){
 ?>
 <?php
  if(isset($_POST['product'])){
-    $req_fields = array('product-title','product-categorie','product-quantity','buying-price', 'saleing-price' );
+    $req_fields = array('product-title','product-category','product-quantity','buying-price', 'saleing-price' );
     validate_fields($req_fields);
 
    if(empty($errors)){
        $p_name  = remove_junk($db->escape($_POST['product-title']));
-       $p_cat   = (int)$_POST['product-categorie'];
+       $p_cat   = (int)$_POST['product-category'];
        $p_qty   = remove_junk($db->escape($_POST['product-quantity']));
        $p_buy   = remove_junk($db->escape($_POST['buying-price']));
        $p_sale  = remove_junk($db->escape($_POST['saleing-price']));
@@ -31,7 +31,7 @@ if(!$product){
        }
        $query   = "UPDATE products SET";
        $query  .=" name ='{$p_name}', quantity ='{$p_qty}',";
-       $query  .=" buy_price ='{$p_buy}', sale_price ='{$p_sale}', categorie_id ='{$p_cat}',media_id='{$media_id}'";
+       $query  .=" buy_price ='{$p_buy}', sale_price ='{$p_sale}', category_id ='{$p_cat}',media_id='{$media_id}'";
        $query  .=" WHERE id ='{$product['id']}'";
        $result = $db->query($query);
                if($result && $db->affected_rows() === 1){
@@ -78,10 +78,10 @@ if(!$product){
               <div class="form-group">
                 <div class="row">
                   <div class="col-md-6">
-                    <select class="form-control" name="product-categorie">
-                    <option value=""> Select a categorie</option>
+                    <select class="form-control" name="product-category">
+                    <option value=""> Select a category</option>
                    <?php  foreach ($all_categories as $cat): ?>
-                     <option value="<?php echo (int)$cat['id']; ?>" <?php if($product['categorie_id'] === $cat['id']): echo "selected"; endif; ?> >
+                     <option value="<?php echo (int)$cat['id']; ?>" <?php if($product['category_id'] === $cat['id']): echo "selected"; endif; ?> >
                        <?php echo remove_junk($cat['name']); ?></option>
                    <?php endforeach; ?>
                  </select>

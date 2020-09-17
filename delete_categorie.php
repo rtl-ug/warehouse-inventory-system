@@ -4,19 +4,19 @@
   page_require_level(1);
 ?>
 <?php
-  $categorie = find_by_id('categories',(int)$_GET['id']);
-  if(!$categorie){
-    $session->msg("d","Missing Categorie id.");
-    redirect('categorie.php');
+  $category = find_by_id('categories',(int)$_GET['id']);
+  if(!$category){
+    $session->msg("d","Missing category id.");
+    redirect('category.php');
   }
 ?>
 <?php
-  $delete_id = delete_by_id('categories',(int)$categorie['id']);
+  $delete_id = delete_by_id('categories',(int)$category['id']);
   if($delete_id){
-      $session->msg("s","Categorie deleted.");
-      redirect('categorie.php');
+      $session->msg("s","category deleted.");
+      redirect('category.php');
   } else {
-      $session->msg("d","Categorie deletion failed.");
-      redirect('categorie.php');
+      $session->msg("d","category deletion failed.");
+      redirect('category.php');
   }
 ?>
